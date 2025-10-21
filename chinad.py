@@ -2,9 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-trade = pd.read_csv('trade_merged.csv')
-export = trade[trade['flow_code'] == 'X']
-sector_sum = export.groupby("sector")["primary_value"].sum().reset_index()
+trade = pd.read_csv('trade_exp.csv')
+sector_sum = trade.groupby("sector")["primary_value"].sum().reset_index()
 
 st.header('Распределение экспорта Китая по секторам экономики')
 
